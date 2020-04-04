@@ -1,0 +1,47 @@
+version: '3.2'
+
+services:
+  accounts:
+    image: J3T4R0/storefront-expectedCases:latest
+    # ports:
+    # - "8080:8080/tcp"
+    depends_on:
+    - kafka
+    - mongo
+    hostname: accounts
+    # environment:
+    #   LOGGING_LEVEL_ROOT: DEBUG
+    networks:
+    - kafka-net
+
+  orders:
+    image: J3T4R0/storefront-cases:latest
+    # ports:
+    # - "8080:8080/tcp"
+    depends_on:
+    - kafka
+    - mongo
+    - eureka
+    hostname: orders
+    # environment:
+    #   LOGGING_LEVEL_ROOT: DEBUG
+    networks:
+    - kafka-net
+
+  fulfillment:
+    image: J3T4R0/storefront-mediaReportings:latest
+    # ports:
+    # - "8080:8080/tcp"
+    depends_on:
+    - kafka
+    - mongo
+    - eureka
+    hostname: fulfillment
+    # environment:
+    #   LOGGING_LEVEL_ROOT: DEBUG
+    networks:
+    - kafka-net
+
+networks:
+  kafka-net:
+    driver: overlay
