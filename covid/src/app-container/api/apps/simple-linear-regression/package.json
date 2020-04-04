@@ -1,0 +1,26 @@
+{
+    "name": "simple-linear-regression",
+    "description": "Simple linear regression calculator.",
+    "homepage": "http://lettier.com/simple-linear-regression/",
+    "license": "Apache-2.0",
+    "author": "David Lettier",
+    "private": true,
+    "scripts": {
+        "psvm": "npm run psvm",
+        "installPackages": "yarn && bower install",
+        "buildSrc": "pulp build",
+        "buildDist": "pulp browserify --to ./dist/app.js && node-sass ./static/scss/index.scss ./dist/index.css && cp -R static/images/. dist/ && cp -R static/html/. dist/",
+        "watchBuildDist": "onchange './static/**/*' './src/**/*' -i -- npm run buildDist"
+    },
+    "dependencies": {
+        "chartjs-color": "^2.0.0",
+        "moment": "^2.10.6",
+        "psvm": "^0.1.6",
+        "virtual-dom": "^2.1.1"
+    },
+    "devDependencies": {
+        "onchange": "^3.2.1",
+        "pulp": "^10.0.0",
+        "purescript": "^0.13.6"
+    }
+}
