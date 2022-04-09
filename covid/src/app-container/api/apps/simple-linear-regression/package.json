@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "chartjs-color": "^2.0.0",
-        "moment": "^2.10.6",
+        "moment": "^2.29.2",
         "psvm": "^0.1.6",
         "virtual-dom": "^2.1.1"
     },
